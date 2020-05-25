@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个正整数 n（1 ≤ n ≤ 30），输出外观数列的第 n 项。
+
+    var countAndSay = function (n) {
+      let prev = '1'
+      for (let i = 1; i < n; i++) {
+        prev = prev.replace(/(\d)\1*/g, item => `${item.length}${item[0]}`)
+      }
+      return prev
+    };
+
+    console.log(countAndSay(2))
+  </script>
+</body>
+
+</html>

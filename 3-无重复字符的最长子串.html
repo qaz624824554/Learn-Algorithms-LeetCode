@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数据是一个字符串，定义一个空数组
+    // 1.遍历字符串，如果字符串不在数组里面，就push进去，再重新判断max的大小
+    // 2.如果存在就清空字符串在push进去
+
+    var lengthOfLongestSubstring = function (s) {
+      let arr = []
+      let max = 0
+      for (let val of s) {
+        if (arr.includes(val)) {
+          // 获取当前位置的索引
+          let index = arr.indexOf(val)
+          arr.splice(0, index + 1)
+        }
+        arr.push(val)
+        max = max > arr.length ? max : arr.length
+      }
+      return max
+    }
+    console.log(['a', 'b', 'c'].indexOf('a'))
+    console.log(lengthOfLongestSubstring("dfdv"))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 判断needle是否有空，为空返回0，如果查到不到返回-1
+    // 
+    
+    var strStr = function(haystack, needle) {
+      if(needle.length === 0) {
+        return 0
+      }
+      let index = 0
+      if(!haystack.includes(needle)){
+        return -1
+      } else {
+        index = haystack.indexOf(needle)
+      }
+      return index
+  }
+
+  console.log(strStr('aa',''))
+  console.log(strStr('aaaaa','bba'))
+  console.log(strStr('hello','ll'))
+  </script>
+</body>
+</html>

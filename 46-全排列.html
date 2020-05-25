@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个 没有重复 数字的序列，返回其所有可能的全排列 
+    // 回溯算法
+
+    var permute = function (nums) {
+      let n = nums.length
+      if (n === 0) return nums
+      let res = []
+      let temPath = []
+      const backPath = temPath => {
+        // 当temPath长度==n，push到res
+        if (temPath.length === n) {
+          res.push(temPath)
+          return
+        }
+        for (let i = 0; i < n; i++) {
+          // 如果temPath数组没有包含nums[i],就push
+          if (!temPath.includes(nums[i])) {
+            temPath.push(nums[i])
+            backPath(temPath.slice())
+            temPath.pop()
+          }
+        }
+      }
+      backPath(temPath)
+      return res
+    }
+
+    console.log(permute([1, 2, 3]))
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合
+    // 递归
+    // 1.枚举所有键盘字符
+    // 2.遍历digits并获得索引得到字母
+    // 3.res为空数组时初始化第一个字母的按键组合
+    // 4.到了第二个以后的按键只能从res中取到所有现有字母组合并此按键的元素拼接字符串
+
+    const letterCombinations = function (digits) {
+      const maps = {
+        2: 'abc',
+        3: 'def',
+        4: 'ghi',
+        5: 'jkl',
+        6: 'mno',
+        7: 'pqrs',
+        8: 'tuv',
+        9: 'wxyz'
+      }
+      const res = []
+      for(let num of digits){
+        let w = maps[num]
+        if(res.length > 0){
+          let tmp = []
+          for(let i = 0;i<res.length;i++){
+            for(let j = 1;j<w.length;j++){
+              tmp.push(res[i] + w[j])
+            }
+            // ad bd cd
+            res[i] += w[0]
+          }
+          res.push(...tmp)
+        } else {
+          res.push(...w)
+        }
+      }
+      return res
+    }
+
+    console.log(letterCombinations('23'))
+  </script>
+</body>
+
+</html>

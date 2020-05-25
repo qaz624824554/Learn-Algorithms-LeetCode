@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 遍历字符串，遇到左括号存入数组
+    // 遇到右括号，与左括号匹配，不匹配返false
+
+    var isValid = function (s) {
+      const map = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+      }
+      let arr = []
+      for (var v of s) {
+        if (v in map) {
+          arr.push(v)
+        } else {
+          if (v !== map[arr.pop()]) {
+            return false
+          }
+        }
+      }
+      return !arr.length
+    };
+
+    console.log('[]')
+    console.log('[)]')
+    console.log('(){}[]')
+    console.log('([])')
+  </script>
+</body>
+
+</html>

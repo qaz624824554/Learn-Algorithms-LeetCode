@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数据是一个字符串的数组
+    // 取出数组第一个字符串first
+    // 遍历数组，遍历字符串，将first于每个字符串进行比较
+    // 如果都不匹配返空字符串，相同进行下一位数匹配
+
+    var longestCommonPrefix = function (strs) {
+      if (strs.length === 0) {
+        return ""
+      }
+      let first = strs[0]
+      for (let i = 1; i < strs.length; i++) {
+        let j = 0
+        for (; j < first.length && j < strs[i].length; j++) {
+          if (first.charAt(j) !== strs[i].charAt(j)) {
+            break
+          }
+        }
+        first = first.substr(0, j)
+        if (first === '') {
+          return first
+        }
+      }
+      return first
+    }
+
+    console.log(longestCommonPrefix(["flower", "flow", "flight"]))
+    console.log(longestCommonPrefix(["abca", "abc"]))
+  </script>
+</body>
+
+</html>

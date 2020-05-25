@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个可包含重复数字的序列，返回所有不重复的全排列。
+
+    // 回溯+剪枝（去重）
+
+    var permuteUnique = function (nums) {
+      let n = nums.length
+      nums.sort((a, b) => a - b)
+      let res = []
+      let temPath = []
+      let hash = {}
+      const backtrack = temPath => {
+        if (temPath.length === n) {
+          res.push(temPath)
+          return
+        }
+        for (let i = 0; i < n; i++) {
+          if (hash[i] || (i > 0 && !hash[i - 1] && nums[i - 1] === nums[i])) continue
+          hash[i] = true
+          temPath.push(nums[i])
+          backtrack(temPath.slice())
+          hash[i] = false
+          temPath.pop()
+        }
+      }
+      backtrack(temPath)
+      return res
+    }
+
+    console.log(permuteUnique([1,1,2]))
+  </script>
+</body>
+
+</html>

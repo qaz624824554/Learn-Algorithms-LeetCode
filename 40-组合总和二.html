@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个数组 candidates 和一个目标数 target ，找出 candidates 中所有可以使数字和为 target 的组合。
+
+    // candidates 中的每个数字在每个组合中只能使用一次。
+
+    var combinationSum2 = function (candidates, target) {
+      let len = candidates.length
+      let res = []
+      let temPath = []
+      candidates = candidates.sort((a, b) => a - b)
+      let backtrack = function (temPath, target, start) {
+        if (target === 0) {
+          res.push(temPath)
+          return
+        }
+        for (let i = start; i < len; i++) {
+          if (target < candidates[i]) break
+          // 一次去重
+          if (i > start && candidates[i - 1] === candidates[i]) continue
+          temPath.push(candidates[i])
+          // 二次去重 i+1
+          backtrack(temPath.slice(), target - candidates[i], i + 1)
+          temPath.pop()
+        }
+      }
+      backtrack(temPath, target, 0)
+      return res
+    }
+    console.log(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 如果l1为空或者l2为空直接返回
+    // 如果l1.val > l2.val，则进行递归，l2.next = mergeTwoLists(l1,l2.next),return l2
+    // l1.val < l2.val,l1.next = mergeTwoLists(l1.next,l2),return l1
+
+    var mergeTwoLists = function (l1, l2) {
+      if (l1 === null) {
+        return l2
+      } else if (l2 === null) {
+        return l1
+      }
+      if (l1.val > l2.val) {
+        l2.next = mergeTwoLists(l1, l2.next)
+        return l2
+      } else {
+        l1.next = mergeTwoLists(l1.next, l2)
+        return l1
+      }
+    }
+  </script>
+</body>
+
+</html>

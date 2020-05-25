@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 创建node链表头部，将temp指向node，sum表示当前位相加和
+    // n表示是否进位，while循环
+
+    // var addTwoNumbers = function (l1, l2) {
+    //   let node = new ListNode('head')
+    //   let temp = node, sum, n = 0
+    //   while (l1 || l2) {
+    //     const n1 = l1 ? l1.val : 0
+    //     const n2 = l2 ? l2.val : 0
+    //     sum = n1 + n2 + n
+    //     temp.next = new ListNode(sum % 10)
+    //     temp = temp.next
+    //     n = parseInt(sum / 10)
+    //     if (l1) l1 = l1.next
+    //     if (l2) l2 = l2.next
+    //   }
+    //   if (n > 0) temp.next = new ListNode(n)
+    //   return node.next
+    // }
+
+    // console.log(addTwoNumbers('aaa', 'bbb'))
+
+    const obj = {
+      a: '1'
+    }
+
+    console.log(obj.valueOf());
+
+    console.log(Number(obj))
+    console.log(parseInt(obj))
+    console.log(obj - 0)
+
+    var o = {}
+
+    Object.defineProperty(o, 'name', {
+      value: '张三',
+      writable: true,
+      configurable: true,
+      enumerable: true
+    })
+
+    Object.defineProperty(o, 'age', {
+      get: function () {
+        console.log('get')
+        return age
+      },
+      set: function (val) {
+        age = val
+      },
+      configurable:true
+    })
+
+    console.log(o)
+
+    o.name = '李四'
+
+    console.log(o)
+
+    o.age = 18
+
+    console.log(o)
+  </script>
+</body>
+
+</html>

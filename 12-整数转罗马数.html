@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 字符          数值
+    // I             1
+    // V             5
+    // X             10
+    // L             50
+    // C             100
+    // D             500
+    // M             1000
+
+    // 贪心算法
+
+    var intToRoman = function (num) {
+      let keys = [1000,900,500,400,100,90,50,40,10,9,5,4,1]
+      let value = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I']
+      let res = ''
+      for(let i = 0;i<keys.length;i++){
+        while(num >= keys[i]){
+          num -= keys[i]
+          res += value[i]
+        }
+      }
+      return res
+    }
+
+    console.log(intToRoman(24))
+    console.log(intToRoman(30))
+    console.log(intToRoman(99))
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 拷贝覆盖，遍历数组，如果值不同，将nums[ans]等于num,ans++
+    // ans覆盖了几个，返回的长度就有几个，也就是几个不同
+
+    var removeElement = function (nums, val) {
+      let ans = 0
+      for(let num of nums) {
+        if(num !== val) {
+          nums[ans] = num
+          ans++
+        }
+      }
+      return ans
+    }
+
+    console.log(removeElement([0,1,2,2,3,0,4,2],2))
+  </script>
+</body>
+
+</html>

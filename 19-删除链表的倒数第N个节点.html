@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点
+
+    var removeNthFromEnd = function (head, n) {
+      const dummy = new ListNode(0)
+      dummy.next = head
+      let l = dummy
+      let r = dummy
+      let offset = n + 1
+
+      while (offset--) {
+        r = r.next
+        if (offset > 1 && r == null) {
+          return dummy.next
+        }
+      }
+
+      while (r) {
+        r = r.next
+        l = l.next
+      }
+
+      l.next = l.next.next
+
+      return dummy.next
+    }
+  </script>
+</body>
+
+</html>
